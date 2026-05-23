@@ -7,9 +7,9 @@ rtc:
   tcp_port: 7881
   port_range_start: 50000
   port_range_end: 60000
-  # Set to your VM's LAN IP if auto-discovery fails (recommended for VM behind NAT)
-  # use_external_ip: false
-  # node_ip: 192.168.1.100
+  # NAT VM: disable STUN public-IP discovery; advertise LAN address to clients
+  use_external_ip: false
+  node_ip: 192.168.71.128
 
 # Development keys — replace in production and match apps/backend/.env
 keys:
