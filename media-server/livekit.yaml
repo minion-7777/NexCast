@@ -1,0 +1,24 @@
+# NexCast LiveKit configuration (Ubuntu VM)
+# Keys in LIVEKIT_KEYS env override this file's keys section when using docker-compose.
+
+port: 7880
+
+rtc:
+  tcp_port: 7881
+  port_range_start: 50000
+  port_range_end: 60000
+  # Set to your VM's LAN IP if auto-discovery fails (recommended for VM behind NAT)
+  # use_external_ip: false
+  # node_ip: 192.168.1.100
+
+# Development keys — replace in production and match apps/backend/.env
+keys:
+  devkey: devsecret_change_me_in_production
+
+room:
+  empty_timeout: 600
+  departure_timeout: 30
+  max_participants: 500
+
+logging:
+  level: info

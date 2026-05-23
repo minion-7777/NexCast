@@ -1,0 +1,14 @@
+# NexCast LiveKit media server — run on Ubuntu VM
+# Usage: docker compose --env-file .env up -d
+
+services:
+  livekit:
+    image: livekit/livekit-server:v1.8.4
+    container_name: nexcast-livekit
+    restart: unless-stopped
+    command: --config /etc/livekit.yaml
+    network_mode: host
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml:ro
+    environment:
+      LIVEKIT_KEYS: "${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}"
